@@ -12,6 +12,19 @@ function App() {
     public: false,
   });
 
+  setDataForm({
+    ...dataForm,
+    [e.target.name]:
+      e.target.type === "checkbox" ? e.target.checked : e.target.value,
+  })
+
+  const postData = () => {
+    e.preventDefault();
+    axios.post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", dataForm).then((resp) => {
+      console.log(resp.data);
+    });
+  };
+
 
   return (
     <div className="container-fluid mt-5">
