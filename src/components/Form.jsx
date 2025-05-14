@@ -2,7 +2,7 @@ import React from 'react'
 
 const Form = ({ formData, handleChange }) => {
     return (
-        <div className="row g-3">
+        <form className="row g-3">
             <div className="col-12 col-md-6">
                 <input
                     type="text"
@@ -26,8 +26,7 @@ const Form = ({ formData, handleChange }) => {
                 />
             </div>
             <div className="col-12 col-md-6">
-                <input
-                    type="text-area"
+                <textarea
                     placeholder="body"
                     className="form-control"
                     value={formData.body}
@@ -37,17 +36,19 @@ const Form = ({ formData, handleChange }) => {
                 />
             </div>
             <div className="col-12 col-md-6">
-                <input
-                    type="check-box"
-                    placeholder="public"
-                    className="form-control"
-                    value={formData.public}
-                    onChange={(e) =>
-                        handleChange({ ...formData, public: e.target.value })
-                    }
-                />
+                <div className="form-check">
+                    <input
+                        type="checkbox"
+                        className="form-check-input"
+                        checked={formData.public}
+                        onChange={(e) =>
+                            handleChange({ ...formData, public: e.target.checked })
+                        }
+                    />
+                    <label className="form-check-label">Public</label>
+                </div>
             </div>
-        </div>
+        </form>
     )
 }
 

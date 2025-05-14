@@ -9,21 +9,17 @@ function App() {
     author: "",
     title: "",
     body: "",
-    public: "",
+    public: false,
   });
 
 
   return (
     <div className="container-fluid mt-5">
+      <h1>Form</h1>
       <div className="row">
         <div className="col-12 col-lg-8">
-          <form>
-            <Form formData={dataForm} handleChange={setDataForm} />
-          </form>
+          <Form formData={dataForm} handleChange={setDataForm} />
         </div>
-
-
-        <BusinessCard data={formData} />
       </div>
     </div>
   )
